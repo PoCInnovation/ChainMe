@@ -3,7 +3,8 @@ pragma solidity ^0.6.0;
 import "./GuessTheValue.sol";
 import "./Wallet.sol";
 
-contract Amazing {
+contract Gamble {
+
     address private owner;
     Wallet private walletContract;
     GuessTheValue private guessTheValueContract;

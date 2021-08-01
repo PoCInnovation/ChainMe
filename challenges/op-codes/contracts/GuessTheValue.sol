@@ -1,36 +1,43 @@
 pragma solidity ^0.6.0;
 
-interface Solver {
+import "./Wallet.sol";
 
-    function wow() external pure returns (uint8);
+interface Guess {
+
+    function random() external pure returns (uint8);
 
 }
 
 contract GuessTheValue {
 
-    address private amazingAddress;
-    Solver solverInterface;
+    address private gambleAddress;
+    Guess guessInterface;
 
     constructor() public {
-        amazingAddress = msg.sender;
+        gambleAddress = msg.sender;
     }
 
-    modifier onlyAmazing {
-      require(msg.sender == amazingAddress);
+    modifier onlyGamble {
+      require(msg.sender == gambleAddress);
       _;
     }
 
-    function setCheh(address _chehAddress) public {
-        solverInterface = Solver(_chehAddress);
-    }
-
-    function getTheRandomValue() external view onlyAmazing returns (uint8) {
+    modifier checkInstructions {
         uint256 size;
+
         assembly {
-          size := extcodesize(solverInterface_slot)
+          size := extcodesize(guessInterface_slot)
         }
         require(size > 10);
-        return (solverInterface.wow());
+         _;
+    }
+
+    function setInterface(address _guessAddress) public {
+        guessInterface = Guess(_guessAddress);
+    }
+
+    function getTheRandomValue() external view onlyGamble checkInstructions returns (uint8) {
+        return (guessInterface.random());
     }
 
 }

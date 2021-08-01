@@ -2,18 +2,18 @@ pragma solidity ^0.6.0;
 
 contract Wallet {
 
-    address private amazingAddress;
+    address private gambleAddress;
 
     constructor() public {
-        amazingAddress = msg.sender;
+        gambleAddress = msg.sender;
     }
 
-    modifier onlyAmazing {
-      require(msg.sender == amazingAddress);
+    modifier onlyGamble {
+      require(msg.sender == gambleAddress);
       _;
     }
 
-    function sendFunds(uint256 _amount, address payable _user) external onlyAmazing {
+    function sendFunds(uint256 _amount, address payable _user) external onlyGamble {
        _user.transfer(_amount);
     }
 
