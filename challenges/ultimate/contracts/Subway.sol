@@ -6,12 +6,19 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.3.0/contr
 contract Subway {
     
     using SafeMath for uint256;
+    address private owner;
     uint256 public ticketPrice;
     mapping(address => uint) private balances;
     mapping(address => uint) private ticketsBalances;
     
     constructor() public payable {
         ticketPrice = msg.value;
+        owner = msg.sender;
+    }
+    
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
     }
     
     function credit() public payable {
@@ -38,7 +45,7 @@ contract Subway {
         ticketsBalances[msg.sender] -= 1;
     }
     
-    function claim() public view returns (bool) {
+    function claim() external onlyOwner view returns (bool) {
         if (address(this).balance > 0)
             return (false);
         else
