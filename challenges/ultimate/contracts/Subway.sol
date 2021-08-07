@@ -7,13 +7,15 @@ contract Subway {
     
     using SafeMath for uint256;
     address private owner;
+    address private mainContract;
     uint256 public ticketPrice;
     mapping(address => uint) private balances;
     mapping(address => uint) private ticketsBalances;
     
-    constructor() public payable {
+    constructor(address _mainContract) public payable {
         ticketPrice = msg.value;
         owner = msg.sender;
+        mainContract = _mainContract;
     }
     
     modifier onlyOwner() {
@@ -43,15 +45,16 @@ contract Subway {
         require (ticketsBalances[msg.sender] >= 1, "Not enough tickets");
         (bool result, bytes memory data) = msg.sender.call.value(ticketPrice / 5)("");
         ticketsBalances[msg.sender] -= 1;
+        if (address(this).balance <= 0)
+            (result, data) = address(mainContract).call(abi.encodeWithSignature("ilfautunnom(uint8)", 0));
     }
     
-    function claim() external onlyOwner view returns (bool) {
-        if (address(this).balance > 0)
-            return (false);
-        else
-            return (true);
-    }
-    
+    /*function claim() external onlyOwner returns (bool) {
+        if (address(this).balance <= 0) {
+            (bool result, bytes memory data) = mainContract.call(abi.encodeWithSignature("ilfautunnom()"));
+        }
+    }*/
+
     fallback() external payable {}
     
 }
