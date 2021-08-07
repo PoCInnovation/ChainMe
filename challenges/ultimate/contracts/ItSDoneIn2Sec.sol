@@ -14,6 +14,11 @@ contract ItSDoneIn2Sec {
         owner = msg.sender;
     }
     
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+    
     modifier gasConsume() {
         require (msg.sender != tx.origin);
         _;
@@ -28,7 +33,7 @@ contract ItSDoneIn2Sec {
         entrant = msg.sender;
     }
     
-    function claim() public view returns (bool) {
+    function claim() external onlyOwner view returns (bool) {
         if (owner != entrant)
             return (true);
         else
