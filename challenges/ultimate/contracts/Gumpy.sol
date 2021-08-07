@@ -1,13 +1,15 @@
 pragma solidity ^0.6.0;
 
-contract Underflow {
+contract Gumpy {
 
     address private owner;
+    address private mainContract;
     int8 public currentWaterAmount = 0;
     int8 targetWaterAmount = 100;
 
-    constructor() public payable {
+    constructor(address _mainContract) public {
         owner = msg.sender;
+        mainContract = _mainContract;
     }
 
     modifier onlyOwner() {
@@ -24,15 +26,8 @@ contract Underflow {
 
         currentWaterAmount += _waterAmount;
 
-    }
-
-    function claim() public onlyOwner returns (bool) {
-
         if (currentWaterAmount == targetWaterAmount)
-            return (true);
-        else
-            return (false);
-
+            address(mainContract).call(abi.encodeWithSignature("ilfautunnom(uint8)", 3));       
     }
 
 }
