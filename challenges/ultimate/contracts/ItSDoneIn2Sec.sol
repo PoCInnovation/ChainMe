@@ -8,10 +8,12 @@ contract ItSDoneIn2Sec {
     using SafeMath for uint256;
     address payable public entrant;
     address payable private owner;
+    address private mainContract;
     
-    constructor() public {
+    constructor(address _mainContract) public {
         entrant = msg.sender;
         owner = msg.sender;
+        mainContract = _mainContract;
     }
     
     modifier onlyOwner() {
@@ -31,13 +33,8 @@ contract ItSDoneIn2Sec {
     
     function ItSSuperEasy() public isNotAContract gasConsume {
         entrant = msg.sender;
-    }
-    
-    function claim() external onlyOwner view returns (bool) {
         if (owner != entrant)
-            return (true);
-        else
-            return (false);
+            address(mainContract).call(abi.encodeWithSignature("ilfautunnom(uint8)", 2));
     }
     
 }
