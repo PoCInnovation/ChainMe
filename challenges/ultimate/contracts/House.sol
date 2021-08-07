@@ -2,6 +2,7 @@ pragma solidity ^0.6.0;
 
 contract House {
     
+    address private owner;
     uint256 private etherAmount;
     bool public lockedHouse = true;
     bytes32 private password;
@@ -9,6 +10,12 @@ contract House {
     constructor(bytes32 _password) public payable {
         password = keccak256(abi.encodePacked(_password));
         etherAmount = msg.value;
+        owner = msg.sender;
+    }
+    
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
     }
     
     function openTheHouse(bytes32 _password) public payable {
@@ -17,7 +24,7 @@ contract House {
             lockedHouse = false;
     }
     
-    function claim() public view returns (bool) {
+    function claim() external onlyOwner view returns (bool) {
         return (! lockedHouse);
     }
     
