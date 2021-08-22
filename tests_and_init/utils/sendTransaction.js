@@ -1,14 +1,16 @@
 const web3 = require('./connection');
 
-async function sendTransaction(to, value, gas) {
+async function sendTransaction(to, value, gas, data) {
     const transaction = {
+     'from' : process.env.ADDRESS,
      'to': to,
      'value': value,
      'gas': gas,
+     'data' : data
     };
     const signedTx = await web3.eth.accounts.signTransaction(transaction, process.env.PRIVATE_KEY);
 
-    await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+    return await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
 }
 
 module.exports = sendTransaction;
