@@ -1,6 +1,6 @@
 # BadAss
 
-## Faille abordé / Exploit approached :
+## Faille abordée / Exploit approached :
 
 Le premier challenge nommé "BadAdd" est un challenge utilisant la faille du revert dans une receive function. Ce challenge est inspiré du challenge "King" sur Ethernaut et de la mécanique du jeu "King of the Ether".
 
