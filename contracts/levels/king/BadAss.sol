@@ -1,6 +1,6 @@
 pragma solidity ^0.6.0;
 
-contract KingV2 {
+contract BadAss {
     
     address payable badass;
     address payable sender;
