@@ -1,6 +1,4 @@
-const web3 = require('../utils/connection');
-const compileContract = require('../utils/compileContract');
-const sendTransaction = require('../utils/sendTransaction');
+const deployContract = require('../utils/deployContract');
 const fs = require('fs');
 
 async function opcodesInit() {
@@ -18,14 +16,7 @@ async function opcodesInit() {
             content: fs.readFileSync('./contracts/levels/op-codes v2/Wallet.sol', 'utf8'),
         }
     };
-    let contractFile = compileContract(sources, 'Justin.sol', 'Justin');
-    const bytecode = contractFile.evm.bytecode.object;
-    const abi = contractFile.abi;
-    console.log('Attempting to deploy from account:', process.env.ADDRESS);
-    const incrementer = new web3.eth.Contract(abi);
-    const incrementerTx = incrementer.deploy({ data: bytecode });
-    let createReceipt = await sendTransaction(null, '1000000000000000000', '3000000', incrementerTx.encodeABI());
-    console.log('Contract deployed at address', createReceipt.contractAddress);
+    await deployContract(sources, 'Justin.sol', 'Justin', '1000000000000000000');
 }
 
 module.exports = opcodesInit;

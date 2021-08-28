@@ -15,4 +15,4 @@ async function deployContract(sources, fileName, contractName, value) {
     return createReceipt.contractAddress;
 }
 
-module.exports = deployContract;createReceipt.contractAddress
+module.exports = deployContract;
