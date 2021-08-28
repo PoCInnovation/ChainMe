@@ -12,7 +12,6 @@ async function deployContract(sources, fileName, contractName, value, args) {
     const incrementerTx = incrementer.deploy({ data: bytecode, arguments: args });
     let createReceipt = await sendTransaction(null, value, '3000000', incrementerTx.encodeABI());
     console.log('Contract deployed at address', createReceipt.contractAddress);
-	console.log('');
     return createReceipt.contractAddress;
 }
 
