@@ -1,7 +1,6 @@
 require('dotenv').config();
-const web3 = require('./tests_and_init/utils/connection');
-const opcodesInit = require('./tests_and_init/levels/opcodesInit');
+const opcodesTest = require('./tests_and_init/levels/opcodesTest');
 
 (async () => {
-    await opcodesInit();
+    await opcodesTest('0xdfDf552AeA3d3aD926Ab95201AFDD4E7F9ac3f0b');
 })();
