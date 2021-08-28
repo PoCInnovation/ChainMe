@@ -1,6 +1,6 @@
 # BadAss
 
-## Faille abordé / Exploit approached :
+## Faille abordée / Exploit approached :
 
 Le premier challenge nommé "BadAdd" est un challenge utilisant la faille du revert dans une receive function. Ce challenge est inspiré du challenge "King" sur Ethernaut et de la mécanique du jeu "King of the Ether".
 
@@ -18,7 +18,7 @@ Pour valider le challenge il faut que le BadAss ne soit pas l’owner, cependant
 The BadAss is the person who found the good password and the good amount of ether to send. A the start of the challenge, the BadAss is the person who deployed the contract.
 To validate this challenge, the BadAss musn't be the owner, however an additional mechanic is added, the reclaim mechanics. The reclaim is done by the owner
 
-## Solution
+## Solution :
 Pour valider ce challenge, il suffit de trouver le mot de passe qui est crypté avec la procédure keccak256 ainsi que de trouver le bon nombre d’ether à envoyer et enfin mettre en place un système de revert pour que l’owner ne puisse pas reclaim le challenge.
 
 ---
