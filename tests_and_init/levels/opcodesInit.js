@@ -16,7 +16,7 @@ async function opcodesInit() {
             content: fs.readFileSync('./contracts/levels/op-codes v2/Wallet.sol', 'utf8'),
         }
     };
-    await deployContract(sources, 'Justin.sol', 'Justin', '1000000000000000000');
+    await deployContract(sources, 'Justin.sol', 'Justin', '1000000000000000000', null);
 }
 
 module.exports = opcodesInit;
