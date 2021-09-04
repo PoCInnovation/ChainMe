@@ -45,15 +45,12 @@ contract Subway {
         require (ticketsBalances[msg.sender] >= 1, "Not enough tickets");
         (bool result, bytes memory data) = msg.sender.call.value(ticketPrice / 5)("");
         ticketsBalances[msg.sender] -= 1;
-        if (address(this).balance <= 0)
-            (result, data) = address(mainContract).call(abi.encodeWithSignature("ilfautunnom(uint8)", 0));
     }
     
-    /*function claim() external onlyOwner returns (bool) {
-        if (address(this).balance <= 0) {
-            (bool result, bytes memory data) = mainContract.call(abi.encodeWithSignature("ilfautunnom()"));
-        }
-    }*/
+    function claim() public {
+        require (address(this).balance <= 0);
+        address(mainContract).call(abi.encodeWithSignature("setOrder(uint8)", 0));
+    }
 
     fallback() external payable {}
     
@@ -78,6 +75,10 @@ contract ByPassSubway {
 
     function getBalanceOfContract() public view returns (uint256) {
         return (address(this).balance);
+    }
+    
+    function withdrawAllTheBalance(address payable _to) public {
+        _to.transfer(address(this).balance);
     }
 
     fallback () external payable {
