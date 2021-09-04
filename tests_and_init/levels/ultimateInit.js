@@ -19,7 +19,7 @@ async function ultimateInit() {
             content: fs.readFileSync('./contracts/levels/ultimate/Subway.sol', 'utf8'),
         }
     };
-    await deployContract(sources, 'Ultimate.sol', 'Ultimate', '', null);
+    await deployContract(sources, 'Ultimate.sol', 'Ultimate', '1200000000000000000', null);
 }
 
 module.exports = ultimateInit;

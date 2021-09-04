@@ -1,4 +1,4 @@
-const web3 = require('./connection');
+const web3 = require('../utils/connection');
 
 async function badAssTest(instanceAddress) {
     const badAss = await web3.eth.getStorageAt(instanceAddress, 0);
