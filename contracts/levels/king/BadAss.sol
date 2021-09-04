@@ -2,8 +2,8 @@ pragma solidity ^0.6.0;
 
 contract BadAss {
     
-    address payable badass;
-    address payable sender;
+    address payable public badass;
+    address payable private sender;
     address payable public owner;
     uint256 private prize;
     bytes32 private password;
