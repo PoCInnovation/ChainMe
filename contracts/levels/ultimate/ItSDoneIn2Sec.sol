@@ -1,11 +1,11 @@
 pragma solidity ^0.6.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.3.0/contracts/math/SafeMath.sol";
+//import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.3.0/contracts/math/SafeMath.sol";
 //import '@openzeppelin/contracts/math/SafeMath.sol';
 
 contract ItSDoneIn2Sec {
     
-    using SafeMath for uint256;
+    //using SafeMath for uint256;
     address payable public entrant;
     address payable private owner;
     address private mainContract;
@@ -27,7 +27,7 @@ contract ItSDoneIn2Sec {
     }
     
     modifier isNotAContract() {
-        require(gasleft().mod(984) == 0);
+        require((gasleft() % 984) == 0);
         _;
     }
     
