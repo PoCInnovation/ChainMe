@@ -7,8 +7,8 @@ import "./Gumpy.sol";
 
 contract Ultimate {
 
-    address private realOwner;
     address private owner;
+    address private realOwner;
     Subway private subwayContract;
     House private houseContract;
     ItSDoneIn2Sec private easyContract;
@@ -39,10 +39,10 @@ contract Ultimate {
         owner = msg.sender;
     }
     
-    function ilfautunnom(uint8 idChall) public onlyOwner {
-        require(count < 4, "C'est la merde !!");
+    function setOrder(uint8 idChall) public onlyOwner {
+        require(count < 4, "It's not good !!");
         order[count] = idChall;
-        count++;
+        count += 1;
     }
 
 }
