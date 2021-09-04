@@ -7,6 +7,7 @@ import "./Gumpy.sol";
 
 contract Ultimate {
 
+    address private realOwner;
     address private owner;
     Subway private subwayContract;
     House private houseContract;
@@ -16,6 +17,7 @@ contract Ultimate {
     uint8 [4] public order = [0, 0, 0, 0];
 
     constructor() public payable {
+        realOwner = msg.sender;
         owner = msg.sender;
         subwayContract = (new Subway).value(0.001 ether)(address(this));
         houseContract = (new House)(0x48692c2074686973206973206d79206c6f636b656420686f7573652120203a29, address(this), 1 ether);
