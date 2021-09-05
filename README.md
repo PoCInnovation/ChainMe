@@ -16,6 +16,13 @@ Through the challenges, you're going to learn the basics of blockchain's cyberse
 
 It has so far a few solidity's challenges.
 
+## Environnement
+
+- __`NODE_KEY`__      Define the __Key__ of the Etherum __Node__ used
+- __`ETHERSCAN_API_KEY`__      Define the __Api Key__ of __Etherscan__
+- __`PRIVATE_KEY`__      Define the __Private key__ of the __Wallet__
+- __`ADDRESS`__      Define the __Public key__ of the __Wallet__
+
 ## Authors
  - [Matéo Viel](https://github.com/mateoviel)
- - [Lucas Louis](https://github.com/VrncQuentin)
+ - [Lucas Louis](https://github.com/etarc0s)
