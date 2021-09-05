@@ -30,7 +30,7 @@ To start using the challenges, you need a etherum wallet like metamask, then set
 ## Features
 
 It has so far four solidity's challenges:
-- [BadAss](contracts/levels/king/README.md)
+- [BadAss](contracts/levels/badAss/README.md)
 - [Op-codes](contracts/levels/op-codes/README.md)
 - [Op-codes v2](contracts/levels/op-codes_v2/README.md)
 - [Ultimate](contracts/levels/ultimate/README.md)

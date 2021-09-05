@@ -1,6 +1,7 @@
 require('dotenv').config();
 const BadAssInit = require('./tests_and_init/levels/badAssInit');
 const opcodesInit = require('./tests_and_init/levels/opcodesInit');
+const opcodesV2Init = require('./tests_and_init/levels/opcodesv2Init');
 const ultimateInit = require('./tests_and_init/levels/ultimateInit');
 const opcodesTest = require('./tests_and_init/levels/opcodesTest');
 const ultimateTest = require('./tests_and_init/levels/ultimateTest');
@@ -8,6 +9,7 @@ const badAssTest = require('./tests_and_init/levels/badAssTest');
 
 var init = {
 	"badAss" : BadAssInit,
+	"opcodes_v2" : opcodesV2Init,
 	"opcodes" : opcodesInit,
 	"ultimate" : ultimateInit
 };
