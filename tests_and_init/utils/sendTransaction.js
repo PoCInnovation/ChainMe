@@ -2,7 +2,7 @@ const web3 = require('./connection');
 
 async function sendTransaction(to, value, gas, data) {
     const transaction = {
-     'from' : process.env.ADDRESS,
+     'from' : process.env.PUBLIC_KEY,
      'to': to,
      'value': value,
      'gas': gas,

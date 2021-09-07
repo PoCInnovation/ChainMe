@@ -4,7 +4,7 @@
 
 ChaineMe is a project aiming to create a cybersecurity platform with blockchain challenges.
 
-It's not going to be only for Solidity (Etherum's smart contract lnaguage) like most of the others platforms but there is going to be challenges in a wide range of blockchain languages.
+It's going to be only not only for Solidity (Etherum's smart contract language) like most of the others platforms but there is going to be challenges in a wide range of blockchain languages.
 
 Through the challenges, you're going to learn the basics of blockchain's cybersecurity to secure the smart contracts you may have to create.
 
@@ -19,7 +19,7 @@ You just need to execute the command bellow at the root of the repository:
     npm install
 
 ## Quick Start
-To start using the challenges, you need a etherum wallet like metamask, then set the environment variables listed bellow in the .env file and you can just launch the project with:
+To start using the challenges, you need two etherum wallet like metamask (one to host the challenges and one to attack the challenges), then set the environment variables listed bellow in the .env file and you can just launch the project with:
 
     npm run [init CHALLENGE] [test CHALLENGE ADDRESS]
 
@@ -30,17 +30,17 @@ To start using the challenges, you need a etherum wallet like metamask, then set
 ## Features
 
 It has so far four solidity's challenges:
-- [BadAss](contracts/levels/badAss/README.md)
-- [Op-codes](contracts/levels/op-codes/README.md)
-- [Op-codes v2](contracts/levels/op-codes_v2/README.md)
-- [Ultimate](contracts/levels/ultimate/README.md)
+- __[BadAss](contracts/levels/badAss/README.md)__
+- __[Op-codes](contracts/levels/op-codes/README.md)__
+- __[Op-codes v2](contracts/levels/op-codes_v2/README.md)__
+- __[Ultimate](contracts/levels/ultimate/README.md)__
 
 ## Environnement
 
 - __`NODE_KEY`__      Define the __Key__ of the Etherum __Node__ used
 - __`ETHERSCAN_API_KEY`__      Define the __Api Key__ of __Etherscan__
 - __`PRIVATE_KEY`__      Define the __Private key__ of the __Wallet__
-- __`ADDRESS`__      Define the __Public key__ of the __Wallet__
+- __`PUBLIC_KEY`__      Define the __Public key__ of the __Wallet__
 
 ## Dependencies
 - __[axios](https://www.npmjs.com/package/axios)__
@@ -51,5 +51,5 @@ It has so far four solidity's challenges:
 - __[infuria](https://infura.io/)__
 
 ## Authors
- - [Matéo Viel](https://github.com/mateoviel)
- - [Lucas Louis](https://github.com/etarc0s)
+ - __[Matéo Viel](https://github.com/mateoviel)__
+ - __[Lucas Louis](https://github.com/etarc0s)__

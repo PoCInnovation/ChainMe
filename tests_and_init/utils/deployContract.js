@@ -7,7 +7,7 @@ async function deployContract(sources, fileName, contractName, value, args) {
     const bytecode = contractFile.evm.bytecode.object;
     const abi = contractFile.abi;
 
-    console.log('Attempting to deploy contract:', contractName, 'from account:', process.env.ADDRESS);
+    console.log('Attempting to deploy contract:', contractName, 'from account:', process.env.PUBLIC_KEY);
     const incrementer = new web3.eth.Contract(abi);
     const incrementerTx = incrementer.deploy({ data: bytecode, arguments: args });
     let createReceipt = await sendTransaction(null, value, '3000000', incrementerTx.encodeABI());
