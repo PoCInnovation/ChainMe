@@ -18,8 +18,12 @@ You just need to execute the command bellow at the root of the repository:
 
     npm install
 
+Or you can simply build the docker image with:
+
+    docker image build -t IMAGE_NAME
+
 ## Quick Start
-To start using the challenges, you need two etherum wallet like metamask (one to host the challenges and one to attack the challenges), then set the environment variables listed bellow in the .env file and you can just launch the project with:
+To start using the challenges, you need two etherum wallet like metamask (one to host the challenges and one to attack the challenges), then set the environment variables listed bellow in the .env file and you can just launch the project in a docker container with `docker run -it IMAGE_NAME COMMAND` with as usage of the COMMAND:
 
     npm run [init CHALLENGE] [test CHALLENGE ADDRESS]
 
