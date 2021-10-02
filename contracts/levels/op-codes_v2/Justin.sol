@@ -23,7 +23,7 @@ contract Justin {
         address(walletContract).transfer(msg.value);
 
         if (guessTheValueContract.david() == _number) {
-            walletContract.sendFunds(msg.value * 101, msg.sender);
+            walletContract.giveFunds(msg.value * 101, msg.sender);
         }
     }
 

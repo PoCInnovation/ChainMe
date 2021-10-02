@@ -22,13 +22,13 @@ contract GuessTheValue {
       _;
     }
 
-    modifier checkInstructions {
+    modifier checkInstructions(Guess _contractToCheck) {
         uint256 size;
 
         assembly {
-          size := extcodesize(guessInterface_slot)
+          size := extcodesize(_contractToCheck)
         }
-        require(size > 10);
+        require(size <= 10);
          _;
     }
 
@@ -36,7 +36,7 @@ contract GuessTheValue {
         guessInterface = Guess(_guessAddress);
     }
 
-    function getTheRandomValue() external view onlyGamble checkInstructions returns (uint8) {
+    function getTheRandomValue() external view onlyGamble checkInstructions(guessInterface) returns (uint8) {
         return (guessInterface.random());
     }
 

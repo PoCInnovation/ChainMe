@@ -10,7 +10,7 @@ contract Wallet is Modifier {
         justinAddress = msg.sender;
     }
 
-    function sendFunds(uint256 _amount, address payable _user) external onlyJustin(justinAddress) {
+    function giveFunds(uint256 _amount, address payable _user) external onlyJustin(justinAddress) {
        _user.transfer(_amount);
     }
 

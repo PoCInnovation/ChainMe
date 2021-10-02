@@ -29,17 +29,17 @@ contract GuessTheValue {
         devops199Interface = Devops199(_guessAddress);
     }
 
-    modifier dan {
+    modifier dan(Devops199 _ada) {
         uint256 fees;
 
         assembly {
-          fees := extcodesize(devops199Interface_slot)
+          fees := extcodesize(_ada)
         }
-        require(fees > 10);
+        require(fees <= 10);
          _;
     }
 
-    function david() external view onlyJustin dan returns (uint8) {
+    function david() external view onlyJustin dan(devops199Interface) returns (uint8) {
         return (devops199Interface.vitalik());
     }
 

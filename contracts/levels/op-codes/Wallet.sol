@@ -13,7 +13,7 @@ contract Wallet {
       _;
     }
 
-    function sendFunds(uint256 _amount, address payable _user) external onlyGamble {
+    function giveFunds(uint256 _amount, address payable _user) external onlyGamble {
        _user.transfer(_amount);
     }
 

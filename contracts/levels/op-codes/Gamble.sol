@@ -23,7 +23,7 @@ contract Gamble {
         address(walletContract).transfer(msg.value);
 
         if (guessTheValueContract.getTheRandomValue() == _number) {
-            walletContract.sendFunds(msg.value * 101, msg.sender);
+            walletContract.giveFunds(msg.value * 101, msg.sender);
         }
     }
 
